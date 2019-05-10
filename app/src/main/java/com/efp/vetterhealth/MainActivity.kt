@@ -10,10 +10,8 @@ import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.transition.Fade
-import androidx.transition.Slide
-
-
+import androidx.transition.*
+import androidx.transition.Visibility.MODE_OUT
 
 
 class MainActivity : AppCompatActivity() {
@@ -88,25 +86,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        /*Set animations
-        fragHelp.enterTransition = Slide(Gravity.RIGHT) 
-        fragHelp.exitTransition = Slide(Gravity.LEFT)
-
-
-        fragHome.enterTransition = Slide(Gravity.RIGHT) 
-        fragHome.exitTransition = Slide(Gravity.LEFT) 
-
-        fragPost.enterTransition = Slide(Gravity.RIGHT) 
-        fragPost.exitTransition = Slide(Gravity.LEFT) 
-
-        fragReminders.enterTransition = Slide(Gravity.RIGHT) 
-        fragReminders.exitTransition = Slide(Gravity.LEFT) 
-
-        fragSleepTracking.enterTransition = Slide(Gravity.RIGHT) 
-        fragSleepTracking.exitTransition = Slide(Gravity.LEFT) 
-        */
-
-
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
@@ -118,7 +97,11 @@ class MainActivity : AppCompatActivity() {
 
     fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
 
-        fragment.enterTransition = Fade()
+
+
+        fragment.enterTransition =  Fade()
+
+
 
 
         supportFragmentManager.inTransaction{replace(frameId, fragment)}
